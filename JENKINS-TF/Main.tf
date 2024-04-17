@@ -25,15 +25,15 @@ resource "aws_security_group" "Jenkins-sg" {
   }
 
   tags = {
-    Name = "Jenkins-sg"
-  }
+    Name = "Jenkins-sg" 
+  } 
 }
 
 
 resource "aws_instance" "web" {
   ami                    = "ami-0f5ee92e2d63afc18"
   instance_type          = "t2.large"
-  key_name               = "Mumbai"
+  key_name               = "Sehindemi-Tech"
   vpc_security_group_ids = [aws_security_group.Jenkins-sg.id]
   user_data              = templatefile("./install_jenkins.sh", {})
 
@@ -41,6 +41,6 @@ resource "aws_instance" "web" {
     Name = "Jenkins-sonar"
   }
   root_block_device {
-    volume_size = 30
+    volume_size = 30 
   }
 }
